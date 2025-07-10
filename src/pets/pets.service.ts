@@ -14,4 +14,8 @@ export class PetsService {
   async findAll(): Promise<Pet[]> {
     return this.petsRepository.find();
   }
+  findOne(id: number): Promise<Pet> {
+    // EntityNotFoundError
+    return this.petsRepository.findOneOrFail({ where: { id } });
+  }
 }

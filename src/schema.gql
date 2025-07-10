@@ -20,7 +20,7 @@ type AuthResponse {
 
 type Query {
   pets: [Pet!]!
-  users: [User!]!
+  getPet(id: Int!): Pet!
 }
 
 type Mutation {
