@@ -8,15 +8,28 @@ type Pet {
   type: String
 }
 
+type User {
+  id: Int!
+  email: String!
+  username: String!
+}
+
 type Query {
   pets: [Pet!]!
 }
 
 type Mutation {
   createPet(createPetInput: CreatePetInput!): Pet!
+  createUser(createUserInput: CreateUserInput!): User!
 }
 
 input CreatePetInput {
   name: String!
   type: String
+}
+
+input CreateUserInput {
+  username: String!
+  email: String!
+  password: String!
 }
