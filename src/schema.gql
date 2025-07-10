@@ -14,13 +14,19 @@ type User {
   username: String!
 }
 
+type AuthResponse {
+  access_token: String!
+}
+
 type Query {
   pets: [Pet!]!
+  users: [User!]!
 }
 
 type Mutation {
   createPet(createPetInput: CreatePetInput!): Pet!
   createUser(createUserInput: CreateUserInput!): User!
+  login(authInput: AuthInput!): AuthResponse!
 }
 
 input CreatePetInput {
@@ -31,5 +37,10 @@ input CreatePetInput {
 input CreateUserInput {
   username: String!
   email: String!
+  password: String!
+}
+
+input AuthInput {
+  username: String!
   password: String!
 }

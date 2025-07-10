@@ -11,6 +11,9 @@ export class UserService {
     @InjectRepository(User) private usersRepository: Repository<User>,
   ) {}
 
+  async findAll(): Promise<User[]> {
+    return this.usersRepository.find();
+  }
   async findOneByUsername(username: string): Promise<User | undefined> {
     return this.usersRepository.findOne({ where: { username } });
   }
